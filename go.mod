@@ -1,5 +1,5 @@
-module h12.io/proto2json
+module h12.io/pbspec
 
-go 1.14
+go 1.15
 
-require google.golang.org/protobuf v1.25.0
+require google.golang.org/protobuf v1.26.0

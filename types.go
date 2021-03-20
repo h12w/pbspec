@@ -1,10 +1,8 @@
-package proto2json
+package pbspec
 
 import (
-	"io/ioutil"
 	"strings"
 
-	"google.golang.org/protobuf/encoding/protojson"
 	"google.golang.org/protobuf/types/descriptorpb"
 )
 
@@ -25,15 +23,7 @@ type (
 	}
 )
 
-func LoadTypeSet(filename string) (*TypeSet, error) {
-	var fileSet descriptorpb.FileDescriptorSet
-	jsonBuf, err := ioutil.ReadFile(filename)
-	if err != nil {
-		return nil, err
-	}
-	if err := protojson.Unmarshal(jsonBuf, &fileSet); err != nil {
-		return nil, err
-	}
+func NewTypeSet(fileSet *descriptorpb.FileDescriptorSet) (*TypeSet, error) {
 	msgTypes := make(map[string]*MessageType)
 	enumTypes := make(map[string]*EnumType)
 	for _, file := range fileSet.File {

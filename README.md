@@ -1,10 +1,16 @@
-proto2json
-==========
+pbspec
+======
 
-proto2json is a CLI tool converting proto files to a JSON file.
+pbspec is a Go package to load the Protocol Buffer Language (proto files) for code generation.
+
+```bash
+go get h12.io/pbspec
+```
+
+A CLI tool `pbspec2json` is provided for exporting the ProtoBuf file descriptor set into JSON for inspection.
 
 Usage:
 
 ```bash
-proto2json -IPATH1 -IPATH2 ... PROTO_FILES
+pbspec2json -IPATH1 -IPATH2 ... PROTO_FILES
 ```
